@@ -7,6 +7,5 @@ pip install -r requirements.txt
 python cli.py
 ```
 
-This project was built with Python 3.12.5.
-
+This project was built with Python 3.12.5. <br>
 I'd never checked requirements for versioning python.
