@@ -56,7 +56,3 @@ class NaiveGuesser(Guesser):
         )
 
         return sum(map(score_from_poss, crts_poss))
-
-
-if __name__ == "__main__":
-    print(len(NaiveGuesser().words))
