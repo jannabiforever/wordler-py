@@ -49,6 +49,7 @@ class NaiveGuesser(Guesser):
         crts_counter = Counter()
         for answer in self.words:
             # in case `answer` is the correct word
+            logger.info(f"Computing correctness for {answer} and {word}")
             crts_counter[compute_correctness(answer, word)] += 1
 
         crts_poss = list(
