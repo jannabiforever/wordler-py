@@ -19,7 +19,10 @@ if __name__ == "__main__":
             break
         print("Invalid choice. Try again.")
 
-    print(f"Initializing {supported_engines[engine_choice - 1][0]}...")
+    print(
+        f"Initializing {supported_engines[engine_choice - 1][0]}...",
+        end=" "
+    )
     start = time.time_ns()
     match engine_choice:
         case 1:
@@ -30,9 +33,9 @@ if __name__ == "__main__":
     print(f"Initialized in {(time.time_ns() - start) / (1000 ** 2):.2f} ms.")
 
     game_history = []
-    while len(game_history) == 0 or game_history[-1].mask != [Correctness.CORRECT] * 5:
-        print(f"Guessing ...")
+    while len(game_history) == 0 or game_history[-1].mask != (Correctness.CORRECT, Correctness.CORRECT, Correctness.CORRECT, Correctness.CORRECT, Correctness.CORRECT):
+        print(f"Guessing ...", end=" ")
         guess = guesser.guess(game_history)
-        print(f"Guessing {guess}")
+        print(f"Guessed {guess}")
         correctness = correctness_from_string(input("Enter correctness: "))
         game_history.append(Guess(guess, correctness))

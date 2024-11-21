@@ -28,9 +28,12 @@ class NaiveGuesser(Guesser):
     def guess(self, history: List[Guess]) -> str:
         if len(history) > 0:
             self._exclude_impossible(history[-1])
-        scores = self._compute_scores()
+            scores = self._compute_scores()
 
-        return max(scores.keys(), key=lambda x: scores[x])
+            return max(scores.keys(), key=lambda x: scores[x])
+        else:
+            # Hard coded first guess
+            return "tares"
 
     def _exclude_impossible(self, guess: Guess) -> None:
         self.words = list(filter(lambda x: guess.matches(x), self.words))
@@ -49,7 +52,6 @@ class NaiveGuesser(Guesser):
         crts_counter = Counter()
         for answer in self.words:
             # in case `answer` is the correct word
-            logger.info(f"Computing correctness for {answer} and {word}")
             crts_counter[compute_correctness(answer, word)] += 1
 
         crts_poss = list(
