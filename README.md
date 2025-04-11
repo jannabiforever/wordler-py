@@ -4,7 +4,7 @@ You can start the program by running:
 
 ```bash
 pip install -r requirements.txt
-python cli.py
+python app.py
 ```
 
 This project was built with Python 3.12.5. <br>
